@@ -10,11 +10,9 @@ function submitTodo(e){
     text: todoInput.value,
     id: Date.now(),
   };
-
   paintingTodo(newtodo);
   saveTodo(newtodo);
   todoInput.value = '';
-
 }
 
 function paintingTodo(todo){
@@ -24,6 +22,13 @@ function paintingTodo(todo){
   input.type = 'checkbox'
   input.name = 'r';
   input.id = todo.id
+  input.addEventListener('click', (e) => {
+    if(input.checked){
+      deleteTodo(e.target.id);
+    } else {
+      saveTodo(todo);
+    }
+  })
 
   label.htmlFor = todo.id;
   label.innerText = todo.text;
@@ -33,6 +38,13 @@ function paintingTodo(todo){
 function saveTodo(todo){
 
   todos.push(todo);
+  todos.sort((a, b) => {return a.id - b.id});
+  localStorage.setItem(TODO_KEY, JSON.stringify(todos));
+}
+function deleteTodo(id){
+  todos = todos.filter((todo) => {
+    return todo.id !== parseInt(id);
+  });
   localStorage.setItem(TODO_KEY, JSON.stringify(todos));
 }
 
