@@ -1,3 +1,4 @@
+/*
 const nameContainer = document.querySelector("#name-container");
 const nameForm = document.querySelector('#name-form');
 const nameInput = document.querySelector('#name-form input');
@@ -26,3 +27,13 @@ if(!savedName){
   h1.classList.toggle('hidden');
   h1.innerText = 'Hello ' + savedName; 
 }
+ */
+const h1 = document.querySelector('h1');
+
+async function showName(){
+  const res =await axios.get('/name');
+  const name = res.data;
+  h1.innerText = 'Hello ' + name; 
+}
+
+window.onload = showName;
