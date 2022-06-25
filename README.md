@@ -1,20 +1,31 @@
 ## Project Title
 
-Simple ToDoList 
+ToDoList
 
 ## Description
 
-An Simple ToDo-List 
-
+An Simple ToDo-List Chrome App using Node.js
+(onMemory Login System)
 ### Dependencies
 
 * Javascript
 * HTML
 * CSS
+* Node.js
 
 ### Demo
 
-<img width="80%" src="https://user-images.githubusercontent.com/107605573/175473760-78e055cf-166e-4b39-afd5-3c471f2e73f1.gif"/>
+
+
+https://user-images.githubusercontent.com/107605573/175773327-4088e2a1-22e4-4641-8b5b-0b2511e17ec4.mp4
+
+
+
+### Executing program
+
+```
+node server.js
+```
 
 ## Authors
 hyuk jin kim
