@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "yourpw",
+    "password": "vmflxl123",
     "database": "todolist",
     "host": "127.0.0.1",
     "dialect": "mysql"

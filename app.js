@@ -4,6 +4,10 @@ const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 
 const { sequelize } = require('./models');
+const indexRouter = require('./routes');
+const loginRouter = require('./routes/login');
+const  usersRouter = require('./routes/users');
+const todosRouter = require('./routes/todos');
 
 const app = express();
 app.set('port', process.env.PORT || 3001);
@@ -24,6 +28,11 @@ sequelize.sync({ force: false })
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
+
+  app.use('/', indexRouter);
+  app.use('/login', loginRouter);
+  app.use('/users', usersRouter);
+  app.use('/todos', todosRouter);
 
   app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url}`);
